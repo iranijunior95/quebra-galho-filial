@@ -59,7 +59,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>FILIAL:</label>
-                            <select class="form-control form-control-sm select2" data-placeholder="Buscar Filial..." id="select-filial">
+                            <select class="form-control" data-placeholder="Buscar Filial..." id="select-filial">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -67,7 +67,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label>NOME FILIAL:</label>
-                            <input type="text" class="form-control form-control-sm" id="input-nome-filial" name="input-nome-filial" disabled>
+                            <input type="text" class="form-control" id="input-nome-filial" name="input-nome-filial" disabled>
                         </div>
                     </div>
                 </div>
@@ -82,15 +82,15 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>MOTORISTA:</label>
-                            <select class="form-control" data-placeholder="Buscar Motorista..." id="select-motorista">
-                                <option value="">test</option>
+                            <select class="form-control select2" data-placeholder="Buscar Motorista..." id="select-motorista">
+                                <option value=""></option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>VEÍCULO:</label>
-                            <select class="form-control" data-placeholder="Buscar Veículo..." id="select-veiculo">
+                            <select class="form-control select2" data-placeholder="Buscar Veículo..." id="select-veiculo">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -173,18 +173,118 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h6>DADOS DA IDA</h6>
+                            <div class="col-md-12">
+                                <h6 class="text-center">DADOS DA IDA</h6>
                                 <hr>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>EMPRESA:</label>
+                                            <input type="text" class="form-control" id="input-empresa-ida" name="input-empresa-ida">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>PRODUTOS:</label>
+                                            <input type="text" class="form-control" id="input-produtos-ida" name="input-produtos-ida">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>N° NOTAS:</label>
+                                            <input type="text" class="form-control" id="input-notas-ida" name="input-notas-ida">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>PESO:</label>
+                                            <input type="text" class="form-control" id="input-peso-ida" name="input-peso-ida">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>R$ FRETE:</label>
+                                            <input type="text" class="form-control" id="input-frete-ida" name="input-frete-ida">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>N° LANÇAMENTO:</label>
+                                            <input type="text" class="form-control" id="input-lancamento-ida" name="input-lancamento-ida">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-12 text-center">
-                                <h6>DADOS DA VOLTA</h6>
+                            <div class="col-md-12">
+                                <h6 class="text-center">DADOS DA VOLTA</h6>
                                 <hr>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>EMPRESA:</label>
+                                            <input type="text" class="form-control" id="input-empresa-volta" name="input-empresa-volta">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>PRODUTOS:</label>
+                                            <input type="text" class="form-control" id="input-produtos-volta" name="input-produtos-volta">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>N° NOTAS:</label>
+                                            <input type="text" class="form-control" id="input-notas-volta" name="input-notas-voltar">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>PESO:</label>
+                                            <input type="text" class="form-control" id="input-peso-volta" name="input-peso-volta">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>R$ FRETE:</label>
+                                            <input type="text" class="form-control" id="input-frete-volta" name="input-frete-volta">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>N° LANÇAMENTO:</label>
+                                            <input type="text" class="form-control" id="input-lancamento-volta" name="input-lancamento-volta">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
