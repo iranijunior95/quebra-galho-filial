@@ -22,6 +22,8 @@ body {
 
 .btn-outline-success {
     font-weight: 600;
+    border-color: #343a40;
+    color: #000;
 }
 
 .btn-outline-success:hover {
