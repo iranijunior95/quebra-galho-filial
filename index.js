@@ -5,8 +5,21 @@ const port = 3000;
 
 app.set('view engine', 'ejs');
 
+//Rotas
 app.get('/', (req, res) => {
-    res.render('../views/layout');
+    res.render('../views/pages/site/home');
+});
+
+app.get('/home', (req, res) => {
+    res.render('../views/pages/site/home');
+});
+
+app.get('/contatos', (req, res) => {
+    res.render('../views/pages/site/contatos');
+});
+
+app.get('/documentacao', (req, res) => {
+    res.render('../views/pages/site/documentacao');
 });
 
 
