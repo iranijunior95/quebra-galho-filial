@@ -1,0 +1,91 @@
+section {
+    background-color: #FFF;
+    height: 330px;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: 0 3px 5px rgba(0,0,0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header-login {
+    background: linear-gradient(120deg, #387c2b 0%, #1a4219 100%);
+    width: 100%;
+    padding: 15px;
+    color: #FFF;
+}
+
+form {
+    padding: 18px;
+    width: 100%;
+}
+
+.form-content {
+    margin-bottom: 8px;
+    padding-bottom: 18px;
+    position: relative;
+    text-align: left;
+}
+
+.form-content label {
+    display: inline-block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+.form-content input {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    border: 2px solid #dfdfdf;
+    font-size: 14px;
+}
+
+.form-content input:focus {
+    border: 2px solid #1a4219de;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.form-content a {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    font-size: 13px;
+    visibility: hidden;
+}
+
+.form-content button {
+    background-color: #387c2b;
+    color: #FFF;
+    width: 100%;
+    border-radius: 8px;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 14px;
+    border: 1px solid #387c2b;
+}
+
+.form-content button:active {
+    box-sizing: border-box;
+    border: 1px solid #1f311b;
+    font-size: 15.8px;
+}
+
+.form-content.error input {
+    border: 2px solid #f86767;
+}
+
+.form-content.error a {
+    color: #f86767;
+    font-size: 13px;
+    visibility: visible;
+}
