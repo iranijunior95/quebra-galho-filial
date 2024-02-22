@@ -15,7 +15,7 @@ const getLogin = (req, res) => {
         titulo: 'Login',
         tela: './pages/login',
         css: ['./css/view_login.css'],
-        js: ['./js/view_login.js']
+        js: ['./js/script_view_login.js']
     };
 
     return res.render('../view/view_site/layout', {dados: dados});

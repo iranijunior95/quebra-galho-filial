@@ -6,6 +6,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname+'/public/src_site/'));
+app.use(express.json());
 app.use(router);
 
 //Rodar Servidor
