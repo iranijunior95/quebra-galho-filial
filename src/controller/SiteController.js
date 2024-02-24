@@ -2,11 +2,10 @@ const getHome = (req, res) => {
 
     const dados = {
         titulo: 'Home',
-        tela: './pages/home',
-        css: ['./css/css1.css', './css/css2.css']
+        tela: './pages/home'
     };
 
-    return res.render('../view/view_site/layout', {dados: dados});
+    return res.render(process.cwd()+'/src/view/view_site/layout', {dados: dados});
 };
 
 const getLogin = (req, res) => {
@@ -18,7 +17,9 @@ const getLogin = (req, res) => {
         js: ['./js/script_view_login.js']
     };
 
-    return res.render('../view/view_site/layout', {dados: dados});
+    console.log(__dirname);
+
+    return res.render(__dirname+'view/view_site/layout', {dados: dados});
 }; 
 
 module.exports = {
