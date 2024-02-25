@@ -16,6 +16,7 @@ router.get('/', siteController.getHome);
 router.post('/api/v1/logar', logarController.logar);
 
 //Rotas Usuarios
+router.get('/api/v1/usuarios/buscar_usuarios', usuariosController.buscarUsuarios);
 router.post('/api/v1/usuarios/cadastrar_usuario', usuariosMiddleware.validarBody, usuariosController.inserirUsuario);
 
 //===== ROTAS API =====//

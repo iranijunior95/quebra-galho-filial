@@ -2,6 +2,16 @@ const bcrypt = require('bcrypt');
 
 const usuariosModel = require('../model/UsuariosModel');
 
+const buscarUsuarios = async (req, res) => {
+    
+    const dadosUsuario = await usuariosModel.buscarUsuarios();
+    return res.status(200).json({
+        status: true,
+        mensagem: 'ok',
+        dados: dadosUsuario
+    }); 
+};
+
 const inserirUsuario = async (req, res) => {
 
     const { usuario, senha, nivel_acesso} = req.body;
@@ -66,5 +76,6 @@ const gerarHashSenha = async (senha) => {
 };
 
 module.exports = {
+    buscarUsuarios,
     inserirUsuario
 };
