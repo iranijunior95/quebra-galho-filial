@@ -1,71 +1,68 @@
+const bcrypt = require('bcrypt');
+
 const usuariosModel = require('../model/UsuariosModel');
 
 const inserirUsuario = async (req, res) => {
 
-    const usuario = req.body.usuario;
-    const senha = req.body.senha;
-    const nivel_acesso = req.body.nivel_acesso;
+    const { usuario, senha, nivel_acesso} = req.body;
 
-    const validaDadosVazios = validarSeDadosEstaoVazios(usuario, senha);
+    const validaUsuarioJaCadastrado = await validarSeJaExisteUsuarioCadastrado(req.body);
 
-    if(validaDadosVazios.status) {
-        
-        const validaUsuarioJaCadastrado = await validarSeJaExisteUsuarioCadastrado(usuario);
+    if(validaUsuarioJaCadastrado.status) {
 
-        if(validaUsuarioJaCadastrado.status){
+        const dados = {
+            usuario:usuario,
+            senha: await gerarHashSenha(senha),
+            nivel_acesso: nivel_acesso
+        };
 
-            return res.status(200).json({
-                mensagem: 'ta liberado',
-                dados: validaUsuarioJaCadastrado.dados
+        const inserirUsuario = await usuariosModel.inserirUsuarios(dados);
+
+        if(inserirUsuario.length === 0) {
+            return res.status(400).json({
+                status: false,
+                mensagem: 'erro! prolema em cadastrar usuario',
+                dados: []
             });
         }
 
-        return res.status(400).json(validaUsuarioJaCadastrado);
-
-    }else {
-
-        return res.status(400).json(validaDadosVazios);
-    }
-};
-
-const validarSeDadosEstaoVazios = (usuario, senha) => {
-
-    if(!usuario) {
-        return { 
-            status: false,
-            mensagem: 'Campo usuário não pode ser vazio...',
-            campo: 'usuario'
-        };
-    }else if(!senha) {
-        return { 
-            status: false,
-            mensagem: 'Campo senha não pode ser vazio...',
-            campo: 'senha'
-        };
-    }else {
-        return { 
+        return res.status(200).json({
             status: true,
-            mensagem: 'ok'
-        };
+            mensagem: 'ok',
+            dados: inserirUsuario
+        });
+
     }
+
+    return res.status(400).json(validaUsuarioJaCadastrado);
 };
 
-const validarSeJaExisteUsuarioCadastrado = async (usuario) => {
+const validarSeJaExisteUsuarioCadastrado = async (body) => {
     
-    const dadosUsuario = await usuariosModel.getNomeUsuario(usuario);
+    const dadosUsuario = await usuariosModel.getNomeUsuario(body.usuario);
 
     if(dadosUsuario.length === 0) {
         
         return {
             status: true,
+            mensagem: 'ok',
             dados: dadosUsuario
         };
     }
 
     return { 
         status: false,
-        mensagem: 'Usuário já cadastrado no sistema...'
+        mensagem: 'Erro: usuario já cadastrado no sistema',
+        dados: body
     };
+};
+
+const gerarHashSenha = async (senha) => {
+
+    const salt = await bcrypt.genSalt(12);
+    const senhaHash = await bcrypt.hash(senha, salt);
+
+    return senhaHash;
 };
 
 module.exports = {

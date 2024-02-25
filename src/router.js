@@ -4,6 +4,8 @@ const siteController = require('./controller/SiteController');
 const logarController = require('./controller/LogarController');
 const usuariosController = require('./controller/UsuariosController');
 
+const usuariosMiddleware = require('./middleware/UsuariosMiddleware');
+
 //===== ROTAS SITE =====//
 router.get('/', siteController.getHome);
 //===== ROTAS SITE =====//
@@ -14,7 +16,7 @@ router.get('/', siteController.getHome);
 router.post('/api/v1/logar', logarController.logar);
 
 //Rotas Usuarios
-router.post('/api/v1/usuarios/cadastrar_usuario', usuariosController.inserirUsuario);
+router.post('/api/v1/usuarios/cadastrar_usuario', usuariosMiddleware.validarBody, usuariosController.inserirUsuario);
 
 //===== ROTAS API =====//
 
